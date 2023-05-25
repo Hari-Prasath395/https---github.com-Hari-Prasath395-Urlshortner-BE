@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Verification</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #00b894;
+      font-family: Arial, sans-serif;
+    }
+  
+    .card {
+      width: 300px;
+      padding: 20px;
+      border-radius: 4px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+  
+    h1 {
+      margin-bottom: 20px;
+    }
+  
+    .error-message {
+      color: red;
+      margin-bottom: 10px;
+    }
+  
+    .success-message {
+      color: green;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>User Verification !!!</h2>
+  
+    <script>
+      // Extract the query parameters from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const err = urlParams.get('err');
+      const message = urlParams.get('message');
+  
+      // Render the error and message
+      if (err) {
+        const errElement = document.createElement('p');
+        errElement.textContent = 'Error: ' + err;
+        errElement.classList.add('error-message');
+        document.querySelector('.card').appendChild(errElement);
+      }
+  
+      if (message) {
+        const messageElement = document.createElement('p');
+        messageElement.textContent = 'Message: ' + message;
+        messageElement.classList.add('success-message');
+        document.querySelector('.card').appendChild(messageElement);
+      }
+    </script>
+  </div>
+</body>
+</html>
